@@ -1,4 +1,4 @@
-$ ->
+window.setAjaxModal = ->
   $("[data-toggle=\"modal\"]").click (e) ->
       e.preventDefault()
       url = $(this).attr("href")
@@ -10,3 +10,9 @@ $ ->
           $("#edit-task-modal").modal()
         ).success ->
           $("input:text:visible:first").focus()
+$ ->
+  setInterval (->
+    $.ajax
+      url: "/"
+      dataType: "script"
+    ), 3000

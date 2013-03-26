@@ -1,7 +1,7 @@
 %a#add-new-task.btn.btn-primary{:href => "#create-task-modal", :role => :button, :data => {:toggle => "modal"}} Add new task
 
-= render 'tasks_table'
-
+#tasks-table
+  = render 'tasks_table'
 
 #edit-task-modal.modal.hide.fade{:role => :dialog}
 #create-task-modal.modal.hide.fade{:role => :dialog}
