@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  shared_by_user_id: 1
+  shared_to_user_id: 1
+  task_id: 1
+
+two:
+  shared_by_user_id: 1
+  shared_to_user_id: 1
+  task_id: 1
