@@ -1,10 +1,19 @@
 !!!
 %html
   %head
-    %title TodoManager
+    %title TODO Manager
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = link_to "LogOut", destroy_user_session_path, :method => :delete
-    = yield
+    .container
+      #navigation
+        %ul.nav.nav-pills.pull-right
+          %li.active
+            %a{:href => "home"} Home
+          - if user_signed_in?
+            %li
+              = link_to "Log Out", destroy_user_session_path, :method => :delete
+        %h3.muted TODO manager
+      %hr
+      = yield

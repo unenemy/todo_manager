@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+
+  validates_uniqueness_of :email
+  validates_confirmation_of :password, :on => :create
+  validates_presence_of :password, :email, :on => :create
 
   has_many :tasks
   has_many :with_me_shares, :foreign_key => "shared_to_user_id", :class_name => "Share"

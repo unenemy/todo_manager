@@ -1,0 +1,8 @@
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :class => "form-signin" }) do |f|
+  %h3.form-signin-heading Forgot your password??
+  = devise_error_messages!
+  = f.email_field :email, :autofocus => true, :placeholder => "Email address", :class => ".input-block-level"
+  %button.btn.btn-large.btn-primary{:type => "submit"} Send me instructions!
+  %div
+    %br
+    = render "devise/shared/links"

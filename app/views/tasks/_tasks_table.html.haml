@@ -1,0 +1,22 @@
+- if @tasks.empty?
+  %h3.muted You have empty TODO list.
+- else
+  .page-header Your TODO list
+  %table.table.table-hover
+    %thead
+      %tr
+        %th #
+        %th Created At
+        %th Title
+        %th Description
+        %th Actions
+    %tbody
+      - @tasks.each do |task|
+        %tr
+          %td= task.id
+          %td= task.created_at
+          %td= task.title
+          %td= task.description
+          %td
+            = link_to "Edit", edit_task_path(task), :class => "btn btn-primary", :data => { :toggle => "modal" }
+            = link_to "Delete", task_path(task), :method => :delete, :class => "btn btn-danger", :confirm => "Delete?"

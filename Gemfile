@@ -4,6 +4,8 @@ gem 'rails', '3.2.12'
 
 gem 'mysql2', '0.3.11'
 
+gem 'inherited_resources'
+
 gem 'haml', '4.0.0'
 gem 'haml-rails', '0.4'
 
