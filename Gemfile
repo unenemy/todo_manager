@@ -28,6 +28,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rspec-rails', :group => [:test, :development]
+
+group :test, :development do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'guard-rspec'
+  gem 'rb-inotify', '~> 0.9'
+end
+
 gem 'jquery-rails', '2.2.1'
 
 # To use debugger
