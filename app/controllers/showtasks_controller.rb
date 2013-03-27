@@ -1,7 +1,7 @@
 class ShowtasksController < InheritedResources::Base
   before_filter :authenticate_user!
   def index
-    @showtasks = current_user.showtasks
+    @showtasks = current_user.showtasks.with_tasks
   end
 
   def update
@@ -11,8 +11,6 @@ class ShowtasksController < InheritedResources::Base
   end
 
   def create
-    @task = Task.new(params[:task])
-    current_user.tasks << @task
     super do |format|
       format.html { redirect_to root_url }
     end

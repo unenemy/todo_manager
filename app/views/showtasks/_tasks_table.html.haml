@@ -19,6 +19,12 @@
           %td= showtask.task.description
           %td
             = link_to "Edit", edit_task_path(showtask.task), :class => "btn btn-primary", :data => { :toggle => "modal" }
-            = link_to "Delete", task_path(showtask.task), :method => :delete, :class => "btn btn-danger", :confirm => "Delete?"
+            - if showtask.shared
+              = link_to "Delete from list", showtask_path(showtask), :method => :delete, :class => "btn btn-danger", :confirm => "Delete?"
+              %br
+              %span.label.label-warning shared by #{showtask.sharer.email}
+            - else
+              = link_to "Delete", task_path(showtask.task), :method => :delete, :class => "btn btn-danger", :confirm => "Delete?"
+              = link_to "Share", share_form_task_path(showtask.task), :class => "btn btn-warning", :data => { :toggle => "modal" }
   :javascript
     setAjaxModal();

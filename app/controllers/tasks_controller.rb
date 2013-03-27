@@ -18,9 +18,32 @@ class TasksController < InheritedResources::Base
     end
   end
 
+  def destroy
+    super do |format|
+      format.html { redirect_to root_url }
+    end
+  end
+
   def edit
     super do |format|
       format.html { render layout: false }
     end
+  end
+
+  def share
+    email = params[:email]
+    @task = Task.find(params[:id])
+    error = @task.share(email, current_user)
+    if error
+      flash[:error] = error
+    else
+      flash[:notice] = "Task successfully shared to #{email}"
+    end
+    redirect_to root_url
+  end
+
+  def share_form
+    @task = Task.find(params[:id])
+    render :layout => false
   end
 end
