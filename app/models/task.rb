@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
-  attr_accessible :description, :title, :user_id
+  attr_accessible :description, :title
 
-  belongs_to :user
-  has_many :shares
+  has_many :showtasks, :dependent => :destroy
+  has_many :users, :through => :showtasks
 end

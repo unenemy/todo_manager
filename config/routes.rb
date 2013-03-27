@@ -1,5 +1,6 @@
 TodoManager::Application.routes.draw do
   devise_for :users
   resources :tasks
-  root to: "tasks#index"
+  resources :showtasks
+  root to: "showtasks#index"
 end

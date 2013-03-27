@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :on => :create
   validates_presence_of :password, :email, :on => :create
 
-  has_many :tasks
-  has_many :with_me_shares, :foreign_key => "shared_to_user_id", :class_name => "Share"
-  has_many :with_me_shares_tasks, :through => :with_me_shares, :class_name => "Task", :source => :task
+  has_many :showtasks
+  has_many :tasks, :through => :showtasks
 end

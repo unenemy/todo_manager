@@ -1,0 +1,12 @@
+= form_for task, :html => {:class => "form-horizontal"} do |f|
+  .modal-header
+    %h3 TODO item
+  .modal-body
+    .control-group
+      %label.control-label{:for => :title} Title
+      = f.text_field :title
+    .control-group
+      %label.control-label{:for => :description} Description
+      = f.text_area :description
+  .modal-footer
+    %button.btn.btn-primary Save

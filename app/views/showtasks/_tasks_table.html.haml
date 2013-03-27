@@ -1,0 +1,24 @@
+- if @showtasks.empty?
+  %h3.muted You have empty TODO list.
+- else
+  .page-header Your TODO list
+  %table.table.table-hover
+    %thead
+      %tr
+        %th #
+        %th Created At
+        %th Title
+        %th Description
+        %th Actions
+    %tbody
+      - @showtasks.each do |showtask|
+        %tr
+          %td= showtask.task.id
+          %td= showtask.task.created_at
+          %td= showtask.task.title
+          %td= showtask.task.description
+          %td
+            = link_to "Edit", edit_task_path(showtask.task), :class => "btn btn-primary", :data => { :toggle => "modal" }
+            = link_to "Delete", task_path(showtask.task), :method => :delete, :class => "btn btn-danger", :confirm => "Delete?"
+  :javascript
+    setAjaxModal();

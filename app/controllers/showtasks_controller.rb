@@ -1,7 +1,7 @@
-class TasksController < InheritedResources::Base
+class ShowtasksController < InheritedResources::Base
   before_filter :authenticate_user!
   def index
-    @tasks = current_user.tasks
+    @showtasks = current_user.showtasks
   end
 
   def update
