@@ -9,12 +9,12 @@ gem 'inherited_resources'
 gem 'haml', '4.0.0'
 gem 'haml-rails', '0.4'
 
-gem 'capistrano', '2.13.3'
-gem 'rvm-capistrano', '1.2.5'
+#gem 'capistrano', '2.13.3'
+#gem 'rvm-capistrano', '1.2.5'
 
 gem 'devise', '2.2.3'
 
-gem 'unicorn', '4.3.1'
+#gem 'unicorn', '4.3.1'
 
 group :development do
   gem 'better_errors'

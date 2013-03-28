@@ -4,21 +4,10 @@ class ShowtasksController < InheritedResources::Base
     @showtasks = current_user.showtasks.with_tasks
   end
 
-  def update
+  def destroy
+    # TODO check if user can manage this task
     super do |format|
-      format.html { redirect_to root_url }
-    end
-  end
-
-  def create
-    super do |format|
-      format.html { redirect_to root_url }
-    end
-  end
-
-  def edit
-    super do |format|
-      format.html { render layout: false }
+      format.html { redirect_to root_url, :notice => "Shared task deleted successfully" }
     end
   end
 end

@@ -5,6 +5,7 @@ class TasksController < InheritedResources::Base
   end
 
   def update
+    # TODO check if user can manage this task
     super do |format|
       format.html { redirect_to root_url }
     end
@@ -19,6 +20,7 @@ class TasksController < InheritedResources::Base
   end
 
   def destroy
+    # TODO check if user can manage this task
     super do |format|
       format.html { redirect_to root_url }
     end
@@ -31,6 +33,7 @@ class TasksController < InheritedResources::Base
   end
 
   def share
+    # TODO check if user can manage this task
     email = params[:email]
     @task = Task.find(params[:id])
     error = @task.share(email, current_user)
